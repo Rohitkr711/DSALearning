@@ -57,7 +57,5 @@ public class findAllIndexOfElement {
         ArrayList<Integer> returnIdxList = findAllIndex(arr, target, idx + 1);
         idxList.addAll(returnIdxList);
         return idxList;
-        
-
     }
 }

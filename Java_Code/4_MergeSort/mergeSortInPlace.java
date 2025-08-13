@@ -4,33 +4,33 @@ public class mergeSortInPlace {
 
     public static void main(String[] args) {
 
-        int[] arr = { 5, 4, 3, 2, 1 };
-        mergeSortAlgoInPlace(arr, 0, arr.length);
+        int[] arr = { 12,8,9,3,11,5,4 };
+        mergeSortAlgoInPlace(arr, 0, arr.length-1);
         System.out.println(Arrays.toString(arr));
     }
 
-    static void mergeSortAlgoInPlace(int[] arr, int s, int e) {
-        if (e - s == 1) {
+    static void mergeSortAlgoInPlace(int[] arr, int start, int end) {
+        if (start==end) {
 
             return;
         }
 
-        int mid = (s + e) / 2;
-        mergeSortAlgoInPlace(arr, s, mid);
-        mergeSortAlgoInPlace(arr, mid, e);
+        int mid = start + (end-start)/2;
+        mergeSortAlgoInPlace(arr, start, mid);
+        mergeSortAlgoInPlace(arr, mid+1, end);
 
-        mergeInPlace(arr, s, mid, e);
+        mergeInPlace(arr, start, mid, end);
 
     }
 
-    private static void mergeInPlace(int[] arr, int s, int m, int e) {
-        int[] mix = new int[e - s];
+    private static void mergeInPlace(int[] arr, int start, int mid, int end) {
+        int[] mix = new int[end - start+1];
 
-        int i = s;
-        int j = m;
+        int i = start;
+        int j = mid+1;
         int k = 0;
 
-        while (i < m && j < e) {
+        while (i <= mid && j <= end) {
             if (arr[i] < arr[j]) {
                 mix[k] = arr[i];
                 ++i;
@@ -41,20 +41,20 @@ public class mergeSortInPlace {
             k++;
         }
 
-        while (i < m) {
+        while (i <= mid) {
             mix[k] = arr[i];
             i++;
             k++;
         }
 
-        while (j < e) {
+        while (j <= end) {
             mix[k] = arr[j];
             j++;
             k++;
         }
 
         for (int l = 0; l < mix.length; l++) {
-            arr[s + l] = mix[l];
+            arr[start + l] = mix[l];
         }
 
     }

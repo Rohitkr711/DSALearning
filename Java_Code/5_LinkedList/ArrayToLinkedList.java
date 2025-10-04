@@ -25,32 +25,57 @@ public class ArrayToLinkedList {
 
     }
 
-    static void printLL(Node head){
-    //    System.out.println("Linked List elements");
-       Node temp = head;
-        while(temp!=null){
+    static void printLL(Node head) {
+        // System.out.println("Linked List elements");
+        Node temp = head;
+        while (temp != null) {
             System.out.println(temp.data);
             temp = temp.nextNode;
         }
     }
 
     static Node deleteHead(Node head) {
-        if(head==null) return null;
+        if (head == null)
+            return null;
         Node temp = head;
         head = head.nextNode;
         return head;
 
     }
 
-    static Node deleteTail(Node head){
-        if(head==null || head.nextNode==null)
+    static Node deleteTail(Node head) {
+        if (head == null || head.nextNode == null)
             return null;
 
         Node temp = head;
-        while(temp.nextNode.nextNode!=null){
+        while (temp.nextNode.nextNode != null) {
             temp = temp.nextNode;
         }
-        temp.nextNode=null;
+        temp.nextNode = null;
+        return head;
+
+    }
+
+    static Node deleteKthNode(Node head, int k) {
+        if(head==null) return null;
+        if(k==1){
+            head = head.nextNode;
+            return head;
+        }
+
+        int counter=0;
+        Node temp = head;
+        Node prev = null;
+        while(temp!=null){
+            ++counter;
+            if(counter==k){
+               prev.nextNode=prev.nextNode.nextNode;
+               break;
+            }
+            prev=temp;
+            temp=temp.nextNode;
+        }
+
         return head;
 
     }
@@ -63,18 +88,22 @@ public class ArrayToLinkedList {
         Node head = convertArrayToLinkedList(arr);
 
         // Linked List Traversal
-        System.out.println("Linked List traversal");
-        printLL(head);
+        // System.out.println("Linked List traversal");
+        // printLL(head);
 
         // Delete head of LL
-        System.out.println("Linked List head deletion");
-        Node newHead = deleteHead(head);
-        printLL(newHead);
+        // System.out.println("Linked List head deletion");
+        // Node newHead = deleteHead(head);
+        // printLL(newHead);
 
         // Delete Tail of a LL
-        System.out.println("Linked List Tail deletion");
-        Node newHead1 = deleteTail(newHead);
-        printLL(newHead1);
+        // System.out.println("Linked List Tail deletion");
+        // Node newHead1 = deleteTail(newHead);
+        // printLL(newHead1);
+
+        // Remove kth node
+        Node newHead2 = deleteKthNode(head, 3);
+        printLL(newHead2);
 
     }
 }

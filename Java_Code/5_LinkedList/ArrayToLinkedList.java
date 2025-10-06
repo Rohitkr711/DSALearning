@@ -80,6 +80,28 @@ public class ArrayToLinkedList {
 
     }
 
+    static Node deleteElementsNode(Node head, int ele) {
+        if(head==null) return null;
+        if(head.data==ele){
+            head = head.nextNode;
+            return head;
+        }
+
+        Node temp = head;
+        Node prev = null;
+        while(temp!=null){
+            if(temp.data==ele){
+               prev.nextNode=prev.nextNode.nextNode;
+               break;
+            }
+            prev=temp;
+            temp=temp.nextNode;
+        }
+
+        return head;
+
+    }
+
     public static void main(String[] args) {
 
         int[] arr = { 2, 3, 4, 5, 9 };
@@ -102,8 +124,12 @@ public class ArrayToLinkedList {
         // printLL(newHead1);
 
         // Remove kth node
-        Node newHead2 = deleteKthNode(head, 3);
-        printLL(newHead2);
+        // Node newHead2 = deleteKthNode(head, 2);
+        // printLL(newHead2);
+
+        // Remove element's node
+        Node newHead3 = deleteElementsNode(head, 6);
+        printLL(newHead3);
 
     }
 }

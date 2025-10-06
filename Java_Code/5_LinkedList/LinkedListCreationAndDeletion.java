@@ -11,7 +11,7 @@ class Node {
 
 }
 
-public class ArrayToLinkedList {
+public class LinkedListCreationAndDeletion {
 
     static Node convertArrayToLinkedList(int[] arr) {
         Node head = new Node(arr[0]);

@@ -39,12 +39,17 @@ public class LinkedListInsertion {
         }
     }
 
-    static Node InsertionAtBegining(Node head, int val){
+    static Node InsertHead(Node head, int val){
         return new Node(val, head);
 
     }
 
-    static Node InsertionAtEnd(Node head, int val){
+    static Node InsertTail(Node head, int val){
+
+        if(head==null){
+            return new Node(val);
+        }
+
         Node temp =head;
         while(temp.nextNode!=null){
             temp=temp.nextNode;
@@ -60,11 +65,11 @@ public class LinkedListInsertion {
         printLL(head);
 
         // Insertion at the begining
-        head=InsertionAtBegining(head,10);
+        head=InsertHead(head,10);
         printLL(head);
 
         // Insertion at the end
-        head = InsertionAtEnd(head, 11);
+        head = InsertTail(head, 11);
         printLL(head);
         
 

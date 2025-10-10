@@ -1,4 +1,4 @@
-package BinarySearch;
+// package 3_BinarySearch;
 
 public class InfiniteArraySearch {
     public static void main(String[] args) {
@@ -24,7 +24,7 @@ public class InfiniteArraySearch {
     
     static int SmallestGreater(int[] nums, int target, int startIndex, int endIndex) {
         int st = startIndex, end = endIndex;
-        
+        System.out.println("Start="+st+"end"+end);        
 
         while (st <= end) {
             int mid = st + (end - st) / 2;

@@ -53,8 +53,14 @@ public class mergeSortInPlace {
             k++;
         }
 
-        for (int l = 0; l < mix.length; l++) {
-            arr[start + l] = mix[l];
+        // for (int l = 0; l < mix.length; l++) {
+        //     arr[start + l] = mix[l];
+        // }
+        int idx=0;
+        while(start<=end){
+            arr[start]=mix[idx];
+            ++start;
+            ++idx;
         }
 
     }

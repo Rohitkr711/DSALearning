@@ -24,7 +24,7 @@ var search = function (nums, target) {
             }
             else {
                 st = mid + 1;
-            }            
+            }
         }
     }
     if (!itemFound) {

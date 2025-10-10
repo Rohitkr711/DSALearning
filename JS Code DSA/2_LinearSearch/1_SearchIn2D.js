@@ -17,3 +17,4 @@ function searchInTwoD(arr,target) {
         }
         return [-1,-1];
     }
+
